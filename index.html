@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>NYC Bike Trends</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header" class="alt">
+        <span class="logo"
+          ><img
+            src="https://cdn.glitch.me/fef072bb-300a-4a5b-92b9-5a8caa28c36c%2FTransparent-Bike.png?v=1639102171575"
+            alt=""
+            height="200"
+        /></span>
+        <h1>NYC Bike Trends</h1>
+        <h3>
+          Are Bike Lane Expansions Necessary?
+        </h3>
+        <p>
+          Amy Tse
+        </p>
+        <p></p>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul>
+          <li><a href="#intro" class="active">Introduction</a></li>
+          <li><a href="#first">Data Used</a></li>
+          <li><a href="#second">Techniques & Visualizations</a></li>
+          <li><a href="#cta">Citations</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Introduction -->
+        <section id="intro" class="main">
+          <div class="spotlight">
+            <div class="content">
+              <header class="major">
+                <h2>Introduction</h2>
+              </header>
+              <p>
+                In late 2020, de Blasio unveiled the largest one-year bike and
+                bus lane expansion in NYC history. Since then, he has created
+                miles of bike lanes, and the Department of Transportation has
+                recently released its 5-year plan in which they hope to achieve
+                250 miles of protected bike lanes by 2026. Bike ridership has
+                been a hot topic in the city, and bike share systems like
+                CitiBike have been expanding rapidly over the past few years.
+                Citibike is a privately owned public bicylcle sharing system
+                that allows users to rent a bike that is parked at multiple
+                stations throughout the city, and drop it off at another station
+                when finished. I want to analyze the bike trends in NYC to see
+                if this policy has made an impact on bike ridership, based on
+                the change in bike riders using bike count data and bike-share
+                (citiBike) usage. My objective is to find out whether or not we
+                should continue pushing for bike expansion policies in the city,
+                or if bike ridership has already reached its potential as a mode
+                of transportation in NYC.
+              </p>
+              <h2>Overview</h2>
+              <p>
+                Although the push to increase bikers in the efforts of creating
+                a green-er NYC, I was skeptical of the results of the bike lane
+                expansion. Personally, I have noticed an increase in vehicular
+                traffic and MTA ridership rather than see an increase in bikers.
+                My hypothesis was that bike ridership is not a popular form of
+                transportation in the city, and that ridership has been stagnant
+                since the bike lane expansions. To discover whether or not my
+                theory was correct, I used publicly available data to find the
+                counts of bike riders over the last few years. I used Python
+                3.8, Pandas, and Plotly.
+              </p>
+            </div>
+            <span class="image"
+              ><img
+                src="https://cdn.glitch.me/fef072bb-300a-4a5b-92b9-5a8caa28c36c%2Fpic.jpeg?v=1639102468464"
+                alt=""
+                height="260"
+            /></span>
+          </div>
+        </section>
+
+        <!-- First Section -->
+        <section id="first" class="main special">
+          <header class="major">
+            <h2>Data</h2>
+          </header>
+          <ul class="features">
+            <li>
+              <span class="icon solid major style1 fa-code"></span>
+              <h3>
+                <a href="https://s3.amazonaws.com/tripdata/index.html" target="/"
+                  >Citibike Data</a
+                >
+              </h3>
+              <p>
+                Citibike publicly provides over a hundred csv files since 2013
+                up until October 2021. Each file contains each citiBike
+                transaction and its associated trip duration, start time, end
+                time, pick up location, drop off location, birth year, gender,
+                and membership type.
+              </p>
+            </li>
+            <li>
+              <span class="icon major style3 fa-copy"></span>
+              <h3>
+                <a
+                  href="https://data.cityofnewyork.us/Transportation/Bicycle-Counts/uczf-rk3c" target="/"
+                  >NYC OpenData</a
+                >
+              </h3>
+              <p>
+                NYC Open Data releases bicycle counts conducted around NYC at
+                key locations. Each line contains the bike counts in 15 minute
+                increments, as well as the location. Bicycle counting technology
+                is used, and the data is limited to select locations.
+                Thus, this data has more limitations than the Citibike data
+                .
+              </p>
+            </li>
+          </ul>
+          <footer class="major"></footer>
+        </section>
+
+        <!-- Second Section -->
+        <section id="second" class="main special">
+          <header class="major">
+            <h2>Techniques & Visualizations</h2>
+          </header>
+          <div class="spotlight">
+            <div class="content">
+              <header class="major">
+                <h3>CitiBike Data</h3>
+              </header>
+              <p style="text-align:left;">
+                There were over 100 CitiBike csv files to scrape through, as
+                they released each csv monthly for the years 2013-2021. I had to
+                write a program to parse through all 108 files, to extract the
+                monthly count for each one. I used Pandas to clean the files,
+                and processed them using string and pandas techniques. I then
+                calculated the mean and average using the .mean and .sum
+                functions. A snippet of the citibike_counts.csv file I created:
+                <br />
+
+                <img
+                  src="https://cdn.glitch.me/fef072bb-300a-4a5b-92b9-5a8caa28c36c%2Fc849afc3-8465-4b89-9c32-3ddb5fa467c0.image.png?v=1639122381894"
+                  width="1000"
+                />
+                <br />
+                <iframe
+                  width="900"
+                  height="400"
+                  frameborder="0"
+                  scrolling="no"
+                  src="//plotly.com/~astrobun/5.embed"
+                ></iframe>
+                <iframe
+                  width="900"
+                  height="400"
+                  frameborder="0"
+                  scrolling="no"
+                  src="//plotly.com/~astrobun/4.embed"
+                ></iframe>
+                <br />Conclusion: Definitely an upwards trend, a small dip
+                during covid, but since bike expansions started happening in
+                early 2021, citiBike usage has increased. <br /><br /><br />
+                Using the citibike_counts.csv file I created above, I got the
+                percentage of each month’s average citibike riders, to find what
+                percentage of citibike rides are taken each month on average.
+                The goal was to see which months have the most citiBike
+                bicyclists. I used pandas for this once again to clean and
+                scrape the data. A snippet of the
+                citibike_monthly_percentages.csv file I created:<br /><br />
+                <img
+                  src="https://cdn.glitch.me/fef072bb-300a-4a5b-92b9-5a8caa28c36c%2Fbf439dac-a55a-4de6-a9b2-cbbf0d71d915.image.png?v=1639122631997"
+                  width="1000"
+                />
+                <br /><iframe
+                  width="900"
+                  height="400"
+                  frameborder="0"
+                  scrolling="no"
+                  src="//plotly.com/~astrobun/8.embed"
+                ></iframe>
+                <br />
+                Conclusion: Winter months have much lower citiBike utilization. June to October have the highest percentages, and they make up more than half of the yearly average. The winter months typically have half the amount of ridership as the warmer months. February sees the least CitiBike riders.
+              </p>
+              <br />
+              <h3>NYC OpenData Bicycle Count</h3>
+              <p style="text-align:left;">
+                The NYC OpenData Bicycle Counts file contains over 4 million
+                rows, each one containing bicycle counts in 15 minute
+                increments, from 2013 to 2021. I first dropped the columns that
+                I didn’t need, and changed the date to date time objects. From
+                there, I then grouped together the rows with the same month and
+                years. I manipulated the data to create a new data frame that
+                contained the count for each month and year. I then calculated
+                the mean and average. A snippet of the nyc_counts.csv file I
+                created:<br /><br />
+                <img
+                  src="https://cdn.glitch.me/fef072bb-300a-4a5b-92b9-5a8caa28c36c%2F7c48bc7f-ea39-42f9-9658-648dd85ff62f.image.png?v=1639122758397"
+                  width="1000"
+                />
+                <br /><iframe
+                  width="900"
+                  height="400"
+                  frameborder="0"
+                  scrolling="no"
+                  src="//plotly.com/~astrobun/11.embed"
+                ></iframe>
+                <iframe
+                  width="900"
+                  height="400"
+                  frameborder="0"
+                  scrolling="no"
+                  src="//plotly.com/~astrobun/10.embed"
+                ></iframe
+                ><br />
+                Conclusion: OpenData NYC data shows that bike ridership has practically stayed the same even after bike lane expansions. However it is to be noted that the 
+                bicycle count does not capture every bicycle ride in NYC, and only some locations have bicycle counting technology installed. Furthermore, with the creation of new bike lanes, perhaps bicyclists are preferring to ride those new paths that may not have counters installed. Thus, the data is more limited than CitiBike’s, and should not be weighed as heavily.
+                <br /><br />
+                Using the nyc_counts.csv file I created above, I got the
+                percentage of each month’s average riders, to find what
+                percentage of rides are taken each month on average. The goal
+                was to see which months have the most bicyclists. A snippet of
+                the nyc_data_monthly_percentages.csv file I created:<br /><br />
+                <img
+                  src="https://cdn.glitch.me/fef072bb-300a-4a5b-92b9-5a8caa28c36c%2Fdaf0ce71-050f-49d9-85bb-397b8e5a10f5.image.png?v=1639122935085"
+                  width="1000"
+                />
+                <iframe
+                  width="900"
+                  height="400"
+                  frameborder="0"
+                  scrolling="no"
+                  src="//plotly.com/~astrobun/13.embed"
+                ></iframe
+                ><br />
+                <br />Conclusion: Similar findings to the citiBike monthly
+                percentage above. Winter months see far fewer bicylcists.
+              </p>
+
+              <h2>
+                Overall Conclusion and Analysis
+              </h2>
+              My hypothesis was incorrect; the bike lane expansion policy as
+              well as citiBike’s increasing presence in NYC have undeniably
+              increased the amount of bikers in NYC over the years. There is a
+              great upwards trends over the years, showing that biking is in
+              fact not out of style, and will likely continue to prosper.
+              However, we see that on average, the winter months see much less
+              bicycle utilization. I propose that it may be more efficient would
+              be to have more bike lanes in the summer and spring months, and
+              reduce the number of lanes in the fall and spring. This would be
+              much more efficient and cause less traffic in NYC.
+<br><br>
+              <h3>
+                Final Notes:
+              </h3>
+              <p>
+                NYC OpenData Bicycle Counter uses bicycle tracking technology
+                that detects the metal of the bicycle wheels, or with a pressure
+                system. To find out more information, visit
+                <a
+                  href="https://www.eco-counter.com/blog/bike-counters-how-do-they-work/" target="/"
+                  >here</a
+                >. Thus, the data only provides a small snapshot of NYC bicycle counts. To find the
+                csv files and the code used for this project, visit
+                <a href="https://github.com/amy-tse" target="/">here</a>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Get Started -->
+        <section id="cta" class="main special">
+          <header class="major">
+            <h2>Citations</h2>
+
+            <ul>
+              <li>
+                <a
+                  href="https://s3.amazonaws.com/tripdata/index.html"
+                  target="_blank"
+                  >CitiBike Data</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://data.cityofnewyork.us/Transportation/Bicycle-Counts/uczf-rk3c/data"
+                  target="_blank"
+                  >NYC OpenData</a
+                >
+              </li>
+              <li>
+                <a href="https://chart-studio.plotly.com/" target="_blank"
+                  >Plotly</a
+                >
+              </li>
+              <li>
+                <a href="https://html5up.net/" target="_blank"
+                  >Website template</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.wired.com/story/lyft-bets-bikes-nyc/"
+                  target="_blank"
+                  >CitiBike Photo</a
+                >
+              </li>
+              <li>
+                <a href="https://ride.citibikenyc.com/" target="_blank"
+                  >CitiBike Header Photo</a
+                >
+              </li>
+              <li>
+                <a href="https://glitch.com/" target="_blank">Glitch</a>
+              </li>
+              <li>
+                <a
+                  href="https://www.eco-counter.com/blog/bike-counters-how-do-they-work/" target="/"
+                  >Bicycle Counter Technology</a
+                >
+              </li>
+            </ul>
+          </header>
+          <footer class="major">
+            <ul class="actions special">
+              <li></li>
+            </ul>
+          </footer>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <p class="copyright">
+          &copy; Amy Tse. Design: <a href="https://html5up.net">HTML5 UP</a>.
+        </p>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
