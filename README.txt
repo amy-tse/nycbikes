@@ -1,31 +1,4 @@
-Stellar by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+In late 2020, de Blasio unveiled the largest one-year bike and bus lane expansion in NYC history. Since then, he has created miles of bike lanes, and the Department of Transportation has recently released its 5-year plan in which they hope to achieve 250 miles of protected bike lanes by 2026. Bike ridership has been a hot topic in the city, and bike share systems like CitiBike have been expanding rapidly over the past few years. Citibike is a privately owned public bicylcle sharing system that allows users to rent a bike that is parked at multiple stations throughout the city, and drop it off at another station when finished. This project explores bike trends in NYC to observe the impact on bike ridership, based on the change in bike riders using bike count data and bike-share (citiBike) usage.
 
 
-Say hello to Stellar, a slick little one-pager with a super vibrant color palette (which
-I guess you can always tone down if it's a little too vibrant for you), a "sticky" in-page
-nav bar (powered by my Scrollex plugin), a separate generic page template (just in case
-you need one), and an assortment of pre-styled elements.
-
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
-
-(* = not included)
-
-AJ
-aj@lkn.io | @ajlkn
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Scrollex (github.com/ajlkn/jquery.scrollex)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+Python 3.8, Pandas, and Plotly is used for this project.
